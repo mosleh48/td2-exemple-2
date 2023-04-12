@@ -1,4 +1,10 @@
 {
+    "name":"tutur/phpcs",
+    "autoload":{
+        "psr-4":{
+            "Tutur\\phpcs\\": "src/"
+        }
+    },
     "require-dev": {
         "squizlabs/php_codesniffer": "^3.6"
     }
