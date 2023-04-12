@@ -1,21 +1,17 @@
+name: PHP Code Sniffer
+on: [push]
+jobs:
   phpcs:
+    name: PHP Code Sniffer
     runs-on: ubuntu-latest
     steps:
-    - name: Checkout code
-      uses: actions/checkout@v2
-
-    - name: Setup PHP
-      uses: shivammathur/setup-php@v2
-      with:
-        php-version: '7.4'
-        tools: composer:v2
-
-    - name: Install dependencies
-      run: composer install --prefer-dist --no-progress
-
-    - name: Install cs2pr
-      run: wget -q https://cs.symfony.com/cs2pr -O cs2pr && chmod +x cs2pr
-
-    - name: Run PHP_CodeSniffer
-      run: ./vendor/bin/phpcs --report=checkstyle | ./cs2pr
-
+      - uses: actions/checkout@v2
+      - name: Install PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: 7.4
+          extensions: mbstring, zip
+      - name: Install Composer dependencies
+        run: composer install --prefer-dist --no-interaction
+      - name: Run PHP Code Sniffer
+        run: vendor/bin/phpcs src --standard=PSR1,PSR12
