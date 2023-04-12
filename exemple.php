@@ -1,43 +1,37 @@
 <?php
+
+namespace UPJV\INSSET;
+
 /**
- * Template File Doc Comment
- * 
- * PHP version 7
+ * Fichier contenant la classe Validateur
  *
- * @category Template_Class
- * @package  Template_Class
- * @author   Author <author@domain.com>
- * @license  https://opensource.org/licenses/MIT MIT License
- * @link     http://localhost/
+ * @package    NomDuPackage
+ * @subpackage NomDuSousPackage
  */
 
 /**
- * Template Class Doc Comment
- * 
- * Template Class
- * 
- * @category Validateur_Class
- * @package  Validateur_Class
- * @author   Author <author@domain.com>
- * @license  https://opensource.org/licenses/MIT MIT License
- * @link     http://localhost/
+ * Classe Validateur
+ *
+ * Cette classe contient une méthode de validation.
+ *
+ * @package    NomDuPackage
+ * @subpackage NomDuSousPackage
  */
 class Validateur
 {
     /**
-     * This function calculates the square of a number.
+     * Vérifie si une chaîne a une longueur supérieure à 2 caractères.
      *
-     * @param int $input The number to be squared.
-     * 
-     * @return int The squared result.
+     * @param string $input La e à valider
+     *
+     * @return bool True si la chaîne a une longueur supérieure à  false sinon.
      */
-    public function check( $input ) 
+    public function check($input)
     {
-        if (strlen($input)<2) {
+        if (strlen($input) < 2) {
             return false;
         } else {
-            return true;       
+            return true;
         }
-       
-    }   
+    }
 }
